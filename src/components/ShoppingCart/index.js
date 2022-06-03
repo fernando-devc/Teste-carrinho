@@ -19,7 +19,6 @@ export default function ShoppingCart() {
     React.useEffect(() => {
         getTotal();
     }, [provider.items]);
-    console.log(provider);
     return (
         <div className={styles.main}>
             <div className={styles.container}>
