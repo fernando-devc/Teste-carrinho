@@ -1,7 +1,7 @@
 import React from "react";
 import { CartContext } from "../../../context/Cart";
 import styles from "./styles.module.css";
-const url_api = "http://localhost:3000/api/get_products";
+const url_api = process.env.NEXT_PUBLIC_API;
 export default function Products() {
     const [loading, setLoading] = React.useState(false);
     const [products, setProucts] = React.useState([]);
@@ -12,7 +12,6 @@ export default function Products() {
             const res = await fetch(url_api);
             const data = await res.json();
             setProucts(data.items);
-            console.log(data);
         } catch (error) {}
     };
     React.useEffect(() => {
