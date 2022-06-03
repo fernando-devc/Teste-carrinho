@@ -22,7 +22,7 @@ export default function Products() {
     const addProduct = (product) => {
         if (provider.items.includes(product)) {
             toast.dismiss();
-            toast.error("produto ja esta no carrinho");
+            toast.error("o produto já está no carrinho");
             return;
         }
         provider.setItems((list) => [...list, product]);
