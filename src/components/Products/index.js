@@ -25,6 +25,8 @@ export default function Products() {
             return;
         }
         provider.setItems((list) => [...list, product]);
+        toast.dismiss();
+        toast.success("Produto adicionado ao carrinho");
     };
     return (
         <div className={styles.listProducts}>
