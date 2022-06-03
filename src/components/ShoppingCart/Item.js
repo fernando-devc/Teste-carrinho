@@ -6,8 +6,8 @@ export default function Item({ product }) {
     const provider = React.useContext(CartContext);
     const DeleteItem = (product) => {
         let list = [];
-        provider.items.forEach((item) => {
-            if (item.id !== product.id) {
+        provider.items.forEach((item, index) => {
+            if (parseInt(item.productId) !== parseInt(product.productId)) {
                 list.push(item);
             }
         });

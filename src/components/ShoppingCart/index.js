@@ -7,6 +7,7 @@ import styles from "./styles.module.css";
 
 export default function ShoppingCart() {
     const [total, setTotal] = React.useState("13,00");
+    // const [items,setItems] = React.useState([])
     const provider = React.useContext(CartContext);
     const getTotal = () => {
         let valor = 0;
@@ -27,11 +28,9 @@ export default function ShoppingCart() {
                 </div>
                 <Divider />
                 <div className={styles.items}>
-                    {provider.items
-                        ? provider.items.map((item) => (
-                              <Item product={item} key={item.id} />
-                          ))
-                        : ""}
+                    {provider.items.map((item) => (
+                        <Item product={item} key={item.id} />
+                    ))}
                 </div>
                 <Divider />
                 <div className={styles.total}>

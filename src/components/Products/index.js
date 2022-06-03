@@ -1,4 +1,5 @@
 import React from "react";
+import { toast } from "react-toastify";
 import { CartContext } from "../../../context/Cart";
 import styles from "./styles.module.css";
 const url_api = process.env.NEXT_PUBLIC_API;
@@ -17,6 +18,14 @@ export default function Products() {
     React.useEffect(() => {
         GetProducts();
     }, []);
+    const addProduct = (product) => {
+        if (provider.items.includes(product)) {
+            toast.dismiss();
+            toast.error("produto ja esta no carrinho");
+            return;
+        }
+        provider.setItems((list) => [...list, product]);
+    };
     return (
         <div className={styles.listProducts}>
             {products.map((product) => (
@@ -47,7 +56,7 @@ export default function Products() {
                         </div>
                         <button
                             onClick={(e) => {
-                                provider.setItems((list) => [...list, product]);
+                                addProduct(product);
                             }}
                             className={styles.btn_action}
                         >
