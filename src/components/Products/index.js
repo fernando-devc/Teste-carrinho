@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { toast } from "react-toastify";
 import { CartContext } from "../../../context/Cart";
